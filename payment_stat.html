@@ -157,6 +157,21 @@
       position: relative;
       z-index: 1;
     }
+td {
+  font-weight: bold;
+}
+
+.print-button a {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.print-button a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
   </style>
 </head>
 <body>
@@ -221,7 +236,12 @@
           <td>Success</td>
           <td>Accepted</td>
           <td>2025-07-18</td>
-          <td class="print-button"><a href="#">🖨 Print Receipt</a></td>
+          <td class="print-button">
+  <a href="#">
+    <img src="receipt-icon.jpeg" alt="Receipt" style="height: 30px;" />
+  </a>
+</td>
+
         </tr>
       </tbody>
     </table>
