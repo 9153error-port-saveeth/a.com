@@ -52,12 +52,12 @@
       font-weight: bold;
     }
 
-    .photo-qr-container {
-      position: relative;
-      width: 280px;
-      height: 380px;
-      margin: 20px auto 0 auto;
-    }
+         .photo-qr-container {
+  position: relative;
+  width: 280px;
+  height: 380px;             /* keep this for original image size */
+  margin: 1px auto 0 auto;   /* reduced top margin */
+}
 
     .profile-photo {
       width: 100%;
@@ -83,17 +83,20 @@
       z-index: 2;
     }
 
-    .name {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 50px;
-    }
+      .name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;   /* important: gives space below QR */
+  margin-bottom: 5px;
+}
 
-    .id {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+.id {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
 
     .route-banner {
       background-color: #16a34a;
@@ -218,18 +221,18 @@
     
     @media (max-width: 480px) {
       .photo-qr-container {
-        width: 90%;
-        height: auto;
-        margin-top: 5px;
-      }
-
+      position: relative;
+      width: 280px;
+      height: 380px;
+      margin: 10px auto 0 auto;  /* Moved closer to top */
+    }
       .profile-photo {
         height: auto;
         max-height: 300px;
       }
 
       .name {
-        margin-top: 15px;
+        margin-top: 10px;
         font-size: 16px;
       }
 
