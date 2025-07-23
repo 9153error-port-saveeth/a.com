@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIMATS Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      text-align: center;
+    }
+
+    .header {
+      background-color: #3b82f6;
+      color: white;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      position: relative;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .header img {
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      height: 35px;
+    }
+
+    .menu-icon {
+      position: absolute;
+      right: 15px;
+      top: 12px;
+      width: 25px;
+      height: 20px;
+      background-image: linear-gradient(white 2px, transparent 2px),
+                        linear-gradient(white 2px, transparent 2px),
+                        linear-gradient(white 2px, transparent 2px);
+      background-repeat: no-repeat;
+      background-position: 0 0, 0 8px, 0 16px;
+      background-size: 100% 2px;
+      cursor: pointer;
+    }
+
+    .valid-banner {
+      background-color: #16a34a;
+      color: white;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .photo-qr-container {
+      position: relative;
+      width: 280px;
+      height: 380px;
+      margin: 20px auto 0 auto;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+      border: 3px solid white;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .qr-code {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 90px;
+      border: 3px solid white;
+      background: white;
+      border-radius: 0;
+      z-index: 2;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+
+    .id {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .route-banner {
+      background-color: #16a34a;
+      color: white;
+      padding: 16px 10px;
+      font-size: 18px;
+      font-weight: bold;
+      position: fixed;
+      bottom: 60px;
+      width: 100%;
+      text-align: center;
+      z-index: 20;
+    }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #3b82f6;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .bottom-nav img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .home-icon {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 50%;
+  padding: 3px; /* thinner padding */
+  width: 64px;  /* larger circle */
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1px solid white; /* thinner border */
+  z-index: 30;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.home-icon img {
+  width: 60px;  /* larger icon */
+  height: 60px;
+}
+
+
+    
+
+    /* Side Menu */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100%;
+      background-color: white;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      transition: left 0.3s ease;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .side-menu.active {
+      left: 0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 99;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .side-menu button.close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      float: right;
+      cursor: pointer;
+    }
+
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 40px;
+    }
+
+    .side-menu li {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #1e3a8a;
+      cursor: pointer;
+    }
+
+    .side-menu li:hover {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+  <!-- Side Menu -->
+  <div class="side-menu" id="sideMenu">
+    <button class="close-btn" onclick="closeMenu()">×</button>
+    <ul>
+      <li onclick="window.location.href='payment_stat.html'">Pass Details</li>
+      <li>Raise Issue</li>
+      <li>Attendance</li>
+      <li>Contact</li>
+      <li>Logout</li>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="saveetha1-logo.png" alt="Logo" />
+    SIMATS TRANSPORTS
+    <div class="menu-icon" onclick="openMenu()"></div>
+  </div>
+
+ <div class="valid-banner" id="validBanner">
+  <!-- The date and live time will appear here -->
+</div>
+
+
+  <div class="photo-qr-container">
+    <img src="nithi.jpg" alt="Profile Photo" class="profile-photo" />
+    <img src="qr-code.png" alt="QR Code" class="qr-code" />
+  </div>
+
+  <div class="name">Nithignya C</div>
+  <div class="id">192211630</div>
+
+  <div class="route-banner">
+    ANNA NAGAR–III 15B
+  </div>
+
+  <div class="bottom-nav">
+    <img src="icon-person.png" alt="Person Icon" />
+    <img src="icon-bell.png" alt="Bell Icon" />
+  </div>
+
+  <div class="home-icon">
+    <img src="home-icon.png" alt="Home Icon" />
+  </div>
+
+  <script>
+  function openMenu() {
+    document.getElementById("sideMenu").classList.add("active");
+    document.getElementById("overlay").classList.add("active");
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("active");
+    document.getElementById("overlay").classList.remove("active");
+  }
+
+  function formatDateTime(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+
+    const hours = String(date.getHours()).padStart(2, '0');
+    const mins = String(date.getMinutes()).padStart(2, '0');
+    const secs = String(date.getSeconds()).padStart(2, '0');
+
+    return `${day}-${month}-${year} <span style="font-size: 14px;">${hours}:${mins}:${secs}</span><br />VALID`;
+  }
+
+  function updateTime() {
+    const now = new Date();
+    document.getElementById("validBanner").innerHTML = formatDateTime(now);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    updateTime(); // Initial time
+    setInterval(updateTime, 1000); // Update every second
+  });
+</script>
+
+</body>
+</html>

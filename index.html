@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIMATS Transports</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header {
+      background-color: #3b82f6;
+      padding: 15px 0;
+      color: white;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: "Times New Roman", Times, serif;
+      width: 100%;
+    }
+
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      width: 100%;
+    }
+
+    .login-container {
+      width: 400px;
+      padding: 40px 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .login-container img.logo {
+      width: 110px;
+      margin-bottom: 15px;
+    }
+
+    .login-container h2 {
+      margin: 10px 0 20px;
+      color: #3b82f6;
+      font-size: 22px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .login-container button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 8px 0;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 40%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .login-container button img {
+      height: 18px;
+      width: 18px;
+    }
+
+    .login-container button:hover {
+      background-color: #2563eb;
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      color: blue;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      background-color: #3b82f6;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    SIMATS TRANSPORTS
+  </div>
+
+  <div class="main">
+    <div class="login-container">
+      <!-- Logo -->
+      <img class="logo" src="saveetha-logo.png" alt="SIMATS Logo" />
+      <h2>Login</h2>
+
+      <!-- Login Form -->
+      <form id="loginForm">
+        <input type="text" id="studentId" placeholder="Enter Staff ID / Student ID" required /><br/>
+        <input type="password" id="password" placeholder="Enter Password" required /><br/>
+        <button type="submit">
+          <img src="key-icon.png" alt="Login Icon" />
+          Login
+        </button>
+        <div class="error-message" id="errorMsg"></div>
+      </form>
+
+      <!-- Sign up -->
+      <div class="signup-link">
+        Do not have an account? <a href="#">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © SIMATS - 2024
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form from submitting
+
+      const id = document.getElementById('studentId').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const error = document.getElementById('errorMsg');
+
+      if (id === "192211630" && pass === "niths") {
+        window.location.href = "dashboard.html"; // Redirect to dashboard
+      } else {
+        error.textContent = "Invalid Student ID or Password.";
+      }
+    });
+  </script>
+
+</body>
+</html>

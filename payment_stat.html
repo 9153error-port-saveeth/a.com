@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Status</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+    }
+
+    .navbar {
+      background-color: #2c7be5;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      font-family: 'Times New Roman', serif;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .navbar-left img {
+      height: 35px;
+      margin-right: 10px;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+    }
+
+    .navbar-right a {
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      top: 100%;
+      left: 0;
+      border-radius: 6px;
+    }
+
+    .dropdown-content a {
+      color: #2c7be5;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-weight: 500;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .profile {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      background-color: transparent;
+      padding: 2px;
+    }
+
+    .logout-icon {
+      height: 25px;
+      width: 25px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    .content {
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      min-height: 75vh;
+    }
+
+    h2 {
+      color: #2c7be5;
+      margin-bottom: 30px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    table {
+      margin: auto;
+      border-collapse: collapse;
+      width: 60%;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #2c7be5;
+      color: white;
+    }
+
+    .print-button a {
+      color: #2c7be5;
+      text-decoration: none;
+      border: 1px solid #2c7be5;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    .footer {
+      background-color: #2c7be5;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+
+    .watermark {
+      opacity: 0.15;
+      position: absolute;
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .table-container {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<div class="navbar">
+  <div class="navbar-left">
+    <img src="saveetha1-logo.png" alt="Logo">
+    SIMATS TRANSPORTS
+  </div>
+  <div class="navbar-right">
+    <a href="#">Home</a>
+    <div class="dropdown">
+      <a href="#">Pass Details &#9662;</a>
+      <div class="dropdown-content">
+        <a href="pass-request.php">Pass Request</a>
+        <a href="payment.php">Payment Status</a>
+      </div>
+    </div>
+    <a href="#">Notification</a>
+    <a href="#">Raise Issue</a>
+    <a href="#">Attendance</a>
+    <a href="#">Contact</a>
+
+    <!-- Profile Dropdown -->
+    <div class="dropdown profile-dropdown">
+      <img src="icon1-person.png" alt="User Icon" class="profile">
+      <div class="dropdown-content" style="right: 0; left: auto;">
+        <a href="#">Profile</a>
+        <a href="#">Change Password</a>
+        <a href="#">Change Profile Picture</a>
+      </div>
+    </div>
+
+    <!-- Logout -->
+    <a href="#"><img src="icon-logout.png" class="logout-icon">Logout</a>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+  <h2>Payment Status</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>User Id</th>
+          <th>Bus Route</th>
+          <th>Payment</th>
+          <th>Admin Approval</th>
+          <th>Date</th>
+          <th>Payment Receipt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>192211630</td>
+          <td>Anna Nagar-III 15B</td>
+          <td>Success</td>
+          <td>Accepted</td>
+          <td>2025-07-18</td>
+          <td class="print-button"><a href="#">🖨 Print Receipt</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="saveetha-logo.png" alt="Watermark" height="350">
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  © SIMATS - 2024
+</div>
+
+</body>
+</html>
