@@ -152,23 +152,29 @@
     
 
     /* Side Menu */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -260px;
-      width: 260px;
-      height: 100%;
-      background-color: white;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-      transition: left 0.3s ease;
-      padding: 20px;
-      text-align: left;
-    }
+    
+     .side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px; /* Hidden by default */
+  visibility: hidden; /* <-- Add this */
+  opacity: 0;         /* <-- Add this */
+  transition: left 0.3s ease, opacity 0.3s ease;
+  width: 260px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 20px;
+  text-align: left;
+}
 
-    .side-menu.active {
-      left: 0;
-    }
+.side-menu.active {
+  left: 0;
+  visibility: visible; /* <-- Make it visible */
+  opacity: 1;          /* <-- Fade in */
+}
+
 
     .overlay {
       position: fixed;
